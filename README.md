@@ -29,6 +29,7 @@ DOB, DOD, notable works, and a link to their IMDB page where applicable.
   * AWS
 * Unit Testing
   * JUnit
-* IDE: IntelliJ IDEA
+* IDE: 
+  * IntelliJ IDEA
 
 
