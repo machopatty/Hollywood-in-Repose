@@ -7,4 +7,9 @@
 |9/30/2018|Finished Watching videos and working through demo. Began exercise 4|4  | |
 |10/1/2018|Completed Exercise 4. Watched Week 5 intro video|2| |
 |10/7|2018|Began creating UI for independent project. Finished week 5 demos/video and exercise|5|
+|10/10/2018|Working on week 5 exercise| 4 | |
 |||  | |
+|||  | |
+|||  | |
+|||  | |
+
