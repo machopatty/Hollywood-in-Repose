@@ -1,7 +1,7 @@
 <%@include file="head.jsp"%>
 <html>
 <body>
-<h2>User Display Exercise - Week 1</h2>
+<h2>Hollywood In Repose</h2>
 
 
 <form action="searchUser"" method="GET">
