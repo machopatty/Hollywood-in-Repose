@@ -1,5 +1,7 @@
 package matc.persistence;
 
+import matc.entity.UserSearchResult;
+import matc.entity.User;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;
@@ -169,6 +171,6 @@ public class GenericDao<T> {
     }
 
     private Session getSession() {
-        return SessionFactoryProvider.getSessionFactory().openSession();
+        return matc.persistence.SessionFactoryProvider.getSessionFactory().openSession();
     }
 }
