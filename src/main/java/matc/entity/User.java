@@ -13,6 +13,7 @@ import lombok.*;
 /**
  * The type User.
  */
+@ToString
 @Entity(name = "User")
 @Table(name = "user")
 
@@ -92,17 +93,6 @@ import lombok.*;
         userSearchResult.setUser(null);
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", userName='" + userName + '\'' +
-                ", password='" + password + '\'' +
-                ", id=" + id +
-                '}';
-    }
 }
 
 
