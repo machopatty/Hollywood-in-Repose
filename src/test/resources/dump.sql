@@ -24,11 +24,11 @@ DROP TABLE IF EXISTS `user`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `author` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `firstName` varchar(25) NOT NULL,
-  `lastName` varchar(25) NOT NULL,
-  `email` varchar(25) NOT NULL,
-  `userName` varchar(25) NOT NULL,
-  `password` varchar(25) NOT NULL,
+  `first_name` varchar(25) NOT NULL,
+  `last_name` varchar(30) NOT NULL,
+  `user_name` varchar(15) NOT NULL,
+  `password` varchar(30) NOT NULL,
+  `email` varchar(30) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `author_id_uindex` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
@@ -40,9 +40,9 @@ CREATE TABLE `author` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `author` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'Mark','Sierra','sierra@hotmail.com','mSierra','pword'),(2,'Steve','Schilt','schilt@hotmail.com','sSchilt','pword'),(3,'Joseph','Ottinger','ottinger@hotmail.com','jOttinger','pword');
+INSERT INTO `user` VALUES (1,'Mark','Sierra','mSierra','xxxxx','sierra@hotmail.com'),(2,'Steve','Francis','sFrancis','xxxxx','sFrancis@hotmail.com'),(3,'Bill','Jenkins','bJenkins','xxxxx','bJenkins@hotmail.com');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
-UNLOCK TABLES;
+UNLOCK TABLES;users_user_name_uindex
 
 --
 -- Table structure for table `userSearchResult`
@@ -53,8 +53,8 @@ DROP TABLE IF EXISTS `userSearchResult`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `userSearchResult` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(70) DEFAULT NULL,
-  `author_id` int(11) DEFAULT NULL,
+  `celebrityName` varchar(70) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `userSearchResult_id_uindex` (`id`),
   KEY `book_user_id_fk` (`user_id`),
@@ -68,7 +68,7 @@ CREATE TABLE `userSearchResult` (
 
 LOCK TABLES `userSearchResult` WRITE;
 /*!40000 ALTER TABLE `userSearchResult` DISABLE KEYS */;
-INSERT INTO `userSearchResult` VALUES (1,'John Candy',1),(2,'David Bowie',3),(3,'Prince',2);
+INSERT INTO `userSearchResult` VALUES (1,'John Candy',1),(2,'Slim Pickens',3),(3,'David Bowie',2);
 /*!40000 ALTER TABLE `userSearchResult` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
