@@ -16,21 +16,21 @@ import lombok.*;
 @Entity(name = "User")
 @Table(name = "user")
 
-@Data class User {
-    @Column(name = "firstName")
+@Data public class User {
+    @Column(name = "first_name")
     @Getter @Setter private String firstName;
 
-    @Column(name = "lastName")
+    @Column(name = "last_name")
     @Getter @Setter private String lastName;
-    
-    @Column(name = "email")
-    @Getter @Setter private String email;
-    
-    @Column(name = "userName")
+
+    @Column(name = "user_name")
     @Getter @Setter private String userName;
-    
+
     @Column(name = "password")
     @Getter @Setter private String password;
+
+    @Column(name = "email")
+    @Getter @Setter private String email;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
@@ -38,7 +38,8 @@ import lombok.*;
     @Getter @Setter private int id;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-    private Set<UserSearchResult> returnedResults = new HashSet<>();
+    private Set<UserSearchResult> userSearchResults = new HashSet<>();
+
 
     /**
      * Instantiates a new User.
@@ -47,29 +48,28 @@ import lombok.*;
 
     }
 
-
-
-
-
-
-
-
-    /**
-     * Gets books.
-     *
-     * @return the books
-     */
-    public Set<UserSearchResult> getSearchResult() {
-        return returnedResults;
+    public User(String firstName, String lastName, String email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
     }
 
     /**
-     * Sets books.
+     * Gets returnedResults.
      *
-     * @param books the books
+     * @return the returnedResults
      */
-    public void setSearchResult(Set<UserSearchResult> returnedResults) {
-        this.books = books;
+    public Set<UserSearchResult> getSearchResult() {
+        return userSearchResults;
+    }
+
+    /**
+     * Sets returnedResults.
+     *
+     * @param userSearchResults the userSearchResults
+     */
+    public void setSearchResult(Set<UserSearchResult> userSearchResults) {
+        this.userSearchResults = userSearchResults;
     }
 
     /**
@@ -78,8 +78,8 @@ import lombok.*;
      * @param userSearchResult the userSearchResult
      */
     public void addSearchResult(UserSearchResult userSearchResult) {
-        books.add(userSearchResult);
-        userSearchResult.setSearchResult(this);
+        userSearchResults.add(userSearchResult);
+        userSearchResult.setUser(this);
     }
 
     /**
@@ -88,8 +88,8 @@ import lombok.*;
      * @param userSearchResult the userSearchResult
      */
     public void removeSearchResult(UserSearchResult userSearchResult) {
-        books.remove(userSearchResult);
-        userSearchResult.setSearchResult(null);
+        userSearchResults.remove(userSearchResult);
+        userSearchResult.setUser(null);
     }
 
     @Override
