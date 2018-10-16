@@ -9,7 +9,7 @@
 |10/7/2018|Began creating UI for independent project. Finished week 5 demos/video and exercise|5||
 |10/10/2018|Working on week 5 exercise| 4 | |
 |10/14/2018|Completed Week 5 exercise. Created classes and database for indie project|7  | |
-|||  | |
+|10/15/2018|Worked on Dao testing for indie project|4| |
 |||  | |
 |||  | |
 
