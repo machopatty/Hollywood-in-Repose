@@ -4,10 +4,6 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
-import org.hibernate.annotations.GenericGenerator;
-
-import javax.persistence.*;
-
 import lombok.*;
 
 /**
@@ -16,7 +12,7 @@ import lombok.*;
 @Entity(name = "UserSearchResult")
 @Table(name = "userSearchResult") // case sensitive!
 
-@Data class UserSearchResult {
+@Data public class UserSearchResult {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO, generator="native")
@@ -27,20 +23,27 @@ import lombok.*;
     @Getter @Setter private String userSearch;
 
     @ManyToOne
-    private User user;
+    @Getter @Setter User user;
 
 
     /**
-     * Instantiates a new Book.
+     * Instantiates a new Search.
      */
     public UserSearchResult() {
     }
 
-    public UserSearchResult(String userSearch, User user) {
 
-        this.userSearch = userSearch;
+    /**
+     * Instantiates a new User search result.
+     *
+     * @param userSearch the user search
+     * @param user       the user
+     */
+    public UserSearchResult(String userSearch, User user) {
         this.user = user;
+        this.userSearch = userSearch;
     }
+
 
     @Override
     public String toString() {
