@@ -10,6 +10,8 @@
 |10/10/2018|Working on week 5 exercise| 4 | |
 |10/14/2018|Completed Week 5 exercise. Created classes and database for indie project|7  | |
 |10/15/2018|Worked on Dao testing for indie project|4| |
+|10/16/2018|Began week 6 exercise; Worked on indie project|4| |
+|10/17/2018|Completed DAO tests for indie project. Worked on week 6 exercise|3| |
 |||  | |
 |||  | |
 
