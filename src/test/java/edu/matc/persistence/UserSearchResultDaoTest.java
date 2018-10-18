@@ -43,19 +43,20 @@ class UserSearchResultDaoTest {
         assertEquals(3, userSearchResult.size());
     }
 
+
    @Test
     void insertSuccess() {
 
         UserDao userDao = new UserDao();
         User user = userDao.getById(2);
-        UserSearchResult newUserSearchResult = new UserSearchResult(user);
+        UserSearchResult newUserSearchResult = new UserSearchResult("Richard Nixon", user);
 
         int id = genericDao.insert(newUserSearchResult);
 
-        assertNotEquals(2,id);
+        assertNotEquals(22,id);
         UserSearchResult insertedResult = (UserSearchResult)genericDao.getById(id);
 
-        assertEquals("David Bowie",insertedResult.getCelebrityName());
+        assertEquals("Richard Nixon",insertedResult.getCelebrityName());
         // Could continue comparing all values, but
         // it may make sense to use .equals()
         // review .equals recommendations http://docs.jboss.org/hibernate/orm/5.2/Bookguide/html_single/Hibernate_Book_Guide.html#mapping-model-pojo-equalshashcode
