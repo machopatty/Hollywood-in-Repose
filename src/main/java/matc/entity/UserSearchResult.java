@@ -9,22 +9,22 @@ import lombok.*;
 /**
  * The type Book.
  */
+//@ToString
 @Entity(name = "UserSearchResult")
 @Table(name = "userSearchResult") // case sensitive!
 
-@Data public class UserSearchResult {
+public class UserSearchResult {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO, generator="native")
     @GenericGenerator(name = "native",strategy = "native")
     @Getter @Setter private int id;
 
-    @Column(name = "userSearch")
-    @Getter @Setter private String userSearch;
+    @Column(name = "celebrityName")
+    @Getter @Setter private String celebrityName;
 
     @ManyToOne
     @Getter @Setter User user;
-
 
     /**
      * Instantiates a new Search.
@@ -33,23 +33,16 @@ import lombok.*;
     }
 
 
-    /**
-     * Instantiates a new User search result.
-     *
-     * @param userSearch the user search
-     * @param user       the user
-     */
-    public UserSearchResult(String userSearch, User user) {
-        this.user = user;
-        this.userSearch = userSearch;
-    }
+   public UserSearchResult(User user) {
 
+        this.user = user;
+    }
 
     @Override
     public String toString() {
         return "UserSearchResult{" +
-                "userSearch='" + userSearch + '\'' +
-                ", user=" + user +
+                "id=" + id +
+                ", celebrityName='" + celebrityName + '\'' +
                 '}';
     }
 }
