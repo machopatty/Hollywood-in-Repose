@@ -13,11 +13,11 @@ import lombok.*;
 /**
  * The type User.
  */
-@ToString
+//@ToString
 @Entity(name = "User")
 @Table(name = "user")
 
-@Data public class User {
+public class User {
     @Column(name = "first_name")
     @Getter @Setter private String firstName;
 
@@ -69,7 +69,7 @@ import lombok.*;
      *
      * @param userSearchResults the userSearchResults
      */
-    public void setSearchResult(Set<UserSearchResult> userSearchResults) {
+   public void setSearchResult(Set<UserSearchResult> userSearchResults) {
         this.userSearchResults = userSearchResults;
     }
 
@@ -78,7 +78,7 @@ import lombok.*;
      *
      * @param userSearchResult the userSearchResult
      */
-    public void addSearchResult(UserSearchResult userSearchResult) {
+   public void addSearchResult(UserSearchResult userSearchResult) {
         userSearchResults.add(userSearchResult);
         userSearchResult.setUser(this);
     }
@@ -88,11 +88,22 @@ import lombok.*;
      *
      * @param userSearchResult the userSearchResult
      */
-    public void removeSearchResult(UserSearchResult userSearchResult) {
+   public void removeSearchResult(UserSearchResult userSearchResult) {
         userSearchResults.remove(userSearchResult);
         userSearchResult.setUser(null);
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", id=" + id +
+                '}';
+    }
 }
 
 
