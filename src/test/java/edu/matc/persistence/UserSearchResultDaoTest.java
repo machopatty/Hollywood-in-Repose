@@ -40,27 +40,25 @@ class UserSearchResultDaoTest {
     @Test
     void getAllSearchesSuccess() {
         List<UserSearchResult> userSearchResult = genericDao.getAll();
-        assertEquals(4, userSearchResult.size());
+        assertEquals(3, userSearchResult.size());
     }
 
-    /**
-     * Verify successful insert of a UserSearchResult
-     */
-    @Test
+   @Test
     void insertSuccess() {
 
         UserDao userDao = new UserDao();
-        User user = userDao.getById(1);
-        UserSearchResult newUserSearchResult = new UserSearchResult("Frank Sinatra", user);
-        user.addSearchResult(newUserSearchResult);
+        User user = userDao.getById(2);
+        UserSearchResult newUserSearchResult = new UserSearchResult(user);
 
         int id = genericDao.insert(newUserSearchResult);
 
-        assertNotEquals(0,id);
-        User insertedSearchResult = (User) genericDao.getById(id);
-        assertEquals("Frank Sinatra", insertedSearchResult.getSearchResult());
-        assertNotNull(insertedSearchResult.getFirstName());
-        assertEquals("Joe", insertedSearchResult.getUserSearchResults());
+        assertNotEquals(2,id);
+        UserSearchResult insertedResult = (UserSearchResult)genericDao.getById(id);
+
+        assertEquals("David Bowie",insertedResult.getCelebrityName());
+        // Could continue comparing all values, but
+        // it may make sense to use .equals()
+        // review .equals recommendations http://docs.jboss.org/hibernate/orm/5.2/Bookguide/html_single/Hibernate_Book_Guide.html#mapping-model-pojo-equalshashcode
     }
 
     /**
@@ -70,10 +68,10 @@ class UserSearchResultDaoTest {
     void updateSuccess() {
         String userSearch = "Phil Hoffman";
         UserSearchResult searchToUpdate = (UserSearchResult)genericDao.getById(3);
-        searchToUpdate.setUserSearch(userSearch);
+        searchToUpdate.setCelebrityName(userSearch);
         genericDao.saveOrUpdate(searchToUpdate);
         UserSearchResult retrievedSearch = (UserSearchResult)genericDao.getById(3);
-        assertEquals(userSearch, retrievedSearch.getUserSearch());
+        assertEquals(userSearch, retrievedSearch.getCelebrityName());
     }
 
     /**
@@ -91,6 +89,6 @@ class UserSearchResultDaoTest {
     @Test
     void getAllSuccess() {
         List<UserSearchResult> UserSearchResults = genericDao.getAll();
-        assertEquals(4, UserSearchResults.size());
+        assertEquals(3, UserSearchResults.size());
     }
 }
