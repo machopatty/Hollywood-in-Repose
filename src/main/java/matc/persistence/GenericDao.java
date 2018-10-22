@@ -171,6 +171,9 @@ public class GenericDao<T> {
     }
 
     private Session getSession() {
+
         return matc.persistence.SessionFactoryProvider.getSessionFactory().openSession();
     }
+
+
 }
