@@ -13,5 +13,5 @@
 |10/16/2018|Began week 6 exercise; Worked on indie project|4| |
 |10/17/2018|Completed DAO tests for indie project. Worked on week 6 exercise|3| |
 |10/18/2018|Attempted to work on Week6 Exercise Accomplished very little|4| |
-|10/21/2018|Worked on week6 exericse. Couldn't create .war file. Worked on indie project. Won't connect to databases|7  | |
+|10/21/2018|Worked on week6 exericse. Couldn't create .war file. Worked on indie project. Won't connect to databases. Created test database|7  | |
 
