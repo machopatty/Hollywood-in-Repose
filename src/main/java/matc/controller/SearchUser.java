@@ -29,10 +29,10 @@ public class SearchUser extends HttpServlet {
         //UserDao userDao = new UserDao();
         GenericDao genericDao = new GenericDao(User.class);
         if (req.getParameter("submit").equals("search")) {
-            req.setAttribute("users", genericDao.userByLastName(req.getParameter("searchTerm")));
+            req.setAttribute("userSearchResults", genericDao.userByLastName(req.getParameter("searchTerm")));
 
         } else {
-            req.setAttribute("users", genericDao.getAll());
+            req.setAttribute("userSearchResults", genericDao.getAll());
         }
         RequestDispatcher dispatcher = req.getRequestDispatcher("/results.jsp");
         dispatcher.forward(req, resp);
